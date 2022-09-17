@@ -1,14 +1,14 @@
-# Part 2
+# Part 2 of miniproject
 # Student 1
 # Name:             Mathew Bushuru
-# Student number:   81262800
+# Student number:  
 
 # Student 2
-# Name:
+# Name:             Aarushi Mehra
 # Student number:
 
 from socket import *
-import time,random
+import time, random
 
 serverName = "localhost"
 # serverName = "127.0.0.1"
@@ -20,7 +20,7 @@ clientSocket = socket(AF_INET, SOCK_DGRAM)
 for message_number in range(5):
 
     # keyboard input from user
-    message = "PING "+str(message_number)+" - hello world"
+    message = "PING " + str(message_number) + " - hello world"
 
     time_before = time.time()
 
@@ -29,14 +29,15 @@ for message_number in range(5):
         clientSocket.settimeout(1)
         clientSocket.sendto(message.encode(), (serverName, serverPort))
         modifiedMessage, serverAddress = clientSocket.recvfrom(2048)
+        time_after = time.time()
+        round_trip_time = time_after - time_before
+        print(modifiedMessage.decode())
+        print("ROUND TRIP TIME: ", round_trip_time * 1000, "ms \n")
     except timeout:
-        print('Request timed out')
+        print("Request timed out")
+        time_after = time.time()
+        round_trip_time = time_after - time_before
+        print("ROUND TRIP TIME: ", round_trip_time * 1000, "ms \n")
 
-    time_after = time.time()
-    round_trip_time = time_after - time_before
-    print(modifiedMessage.decode())
-    print('ROUND TRIP TIME: ',round_trip_time*1000,"ms \n")
-
-    
 
 clientSocket.close()
