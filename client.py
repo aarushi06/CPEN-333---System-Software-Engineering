@@ -1,6 +1,6 @@
 # Part 2 of miniproject
 # Student 1
-# Name:             Mathew Bushuru
+# Name:             
 # Student number:  
 
 # Student 2
