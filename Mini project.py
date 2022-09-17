@@ -1,5 +1,5 @@
 # Student 1
-# Name:             Mathew Bushuru
+# Name:             
 # Student number:  
 
 # Student 2
